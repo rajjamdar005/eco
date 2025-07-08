@@ -27,7 +27,7 @@ const features = [
   },
   {
     icon: Clock,
-    title: "10+ Years Experience",
+    title: "2+ Years Experience",
     description: "Over a decade of successful environmental solutions across various industries.",
     stat: "Since 2014",
     color: "text-green-500"
@@ -153,7 +153,7 @@ const WhyChooseUs = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { name: "ISO 14001", description: "Environmental Management" },
-              { name: "CPCB Certified", description: "Pollution Control Board" },
+              { name: "MPCB Certified", description: "Pollution Control Board" },
               { name: "Green Building", description: "IGBC Certified" },
               { name: "Industry Award", description: "Best Environmental Solution 2023" }
             ].map((cert, index) => (

@@ -17,7 +17,7 @@ const services = [
     icon: Leaf,
     title: "Pollution control board services",
     description: "Expert assistance with pollution control board compliance and regulatory requirements.",
-    features: ["CPCB Compliance", "License Applications", "Environmental Clearances", "Regulatory Support"],
+    features: ["MPCB Compliance", "License Applications", "Environmental Clearances", "Regulatory Support"],
     color: "text-primary"
   },
   {

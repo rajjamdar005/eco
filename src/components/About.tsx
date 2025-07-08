@@ -134,9 +134,9 @@ const About = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: "200+", label: "Projects Completed", icon: Lightbulb },
+              { number: "60+", label: "Projects Completed", icon: Lightbulb },
               { number: "50+", label: "Team Members", icon: Users },
-              { number: "15+", label: "Industries Served", icon: Globe },
+              { number: "30+", label: "Industries Served", icon: Globe },
               { number: "99%", label: "Client Satisfaction", icon: Heart }
             ].map((stat, index) => {
               const Icon = stat.icon;

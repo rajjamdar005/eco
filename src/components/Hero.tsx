@@ -72,11 +72,11 @@ const Hero = () => {
           {/* Clean Stats */}
           <div className="hero-stats grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-12 border-t border-border/30">
             <div className="text-center space-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">10+</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">2+</div>
               <div className="text-muted-foreground font-medium">Years Experience</div>
             </div>
             <div className="text-center space-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">200+</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">60+</div>
               <div className="text-muted-foreground font-medium">Projects Completed</div>
             </div>
             <div className="text-center space-y-2">
