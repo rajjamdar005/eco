@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Eco Essentia Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Nature-Inspired Color Palette */
+    --background: 120 20% 98%; /* Soft Sage White */
+    --foreground: 120 15% 15%; /* Deep Forest Green */
+
+    --card: 120 30% 96%;
+    --card-foreground: 120 15% 15%;
+
+    --popover: 120 30% 96%;
+    --popover-foreground: 120 15% 15%;
+
+    --primary: 140 40% 45%; /* Forest Green */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 140 40% 65%;
+
+    --secondary: 200 60% 55%; /* Ocean Blue */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 200 60% 85%;
+
+    --muted: 120 15% 94%;
+    --muted-foreground: 120 10% 40%;
+
+    --accent: 45 85% 60%; /* Warm Earth */
+    --accent-foreground: 120 15% 15%;
+
+    --success: 140 40% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 15% 88%;
+    --input: 120 15% 92%;
+    --ring: 140 40% 45%;
+
+    --radius: 0.75rem;
+
+    /* Nature-inspired gradients */
+    --gradient-nature: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--secondary) / 0.05));
+
+    /* Soft shadows */
+    --shadow-nature: 0 8px 25px -8px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.08);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.2);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    --sidebar-background: 120 20% 97%;
+    --sidebar-foreground: 120 15% 20%;
+    --sidebar-primary: 140 40% 45%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 120 15% 94%;
+    --sidebar-accent-foreground: 120 15% 20%;
+    --sidebar-border: 120 15% 88%;
+    --sidebar-ring: 140 40% 45%;
+  }
+
+  .dark {
+    --background: 120 15% 8%;
+    --foreground: 120 20% 92%;
+    --card: 120 15% 10%;
+    --card-foreground: 120 20% 92%;
+    --popover: 120 15% 10%;
+    --popover-foreground: 120 20% 92%;
+    --primary: 140 40% 55%;
+    --primary-foreground: 120 15% 8%;
+    --secondary: 200 60% 45%;
+    --secondary-foreground: 120 15% 8%;
+    --muted: 120 15% 15%;
+    --muted-foreground: 120 10% 65%;
+    --accent: 45 85% 50%;
+    --accent-foreground: 120 15% 8%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 120 20% 92%;
+    --border: 120 15% 20%;
+    --input: 120 15% 18%;
+    --ring: 140 40% 55%;
+    --sidebar-background: 120 15% 8%;
+    --sidebar-foreground: 120 20% 90%;
+    --sidebar-primary: 140 40% 55%;
+    --sidebar-primary-foreground: 120 15% 8%;
+    --sidebar-accent: 120 15% 15%;
+    --sidebar-accent-foreground: 120 20% 90%;
+    --sidebar-border: 120 15% 20%;
+    --sidebar-ring: 140 40% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-semibold;
+  }
+}
+
+@layer components {
+  /* Nature Component Classes */
+  .nature-gradient {
+    background: var(--gradient-nature);
+  }
+
+  .earth-gradient {
+    background: var(--gradient-earth);
+  }
+
+  .nature-card {
+    @apply bg-card rounded-xl shadow-[var(--shadow-card)] border border-border/40 transition-[var(--transition-gentle)];
+  }
+
+  .nature-card:hover {
+    @apply shadow-[var(--shadow-nature)] -translate-y-1;
+  }
+
+  .nature-button-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--shadow-nature)] rounded-xl px-8 py-4 font-medium transition-[var(--transition-gentle)] hover:-translate-y-0.5;
+  }
+
+  .nature-button-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-xl px-8 py-4 font-medium transition-[var(--transition-gentle)] hover:-translate-y-0.5;
+  }
+
+  .fade-in-gentle {
+    @apply opacity-0 translate-y-6 transition-[var(--transition-gentle)];
+  }
+
+  .fade-in-gentle.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .gentle-float {
+    animation: gentle-float 4s ease-in-out infinite;
+  }
+
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .nature-pulse {
+    animation: nature-pulse 3s infinite;
+  }
+
+  @keyframes nature-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4); }
+    70% { box-shadow: 0 0 0 8px hsl(var(--primary) / 0); }
+  }
+
+  .leaf-sway {
+    animation: leaf-sway 6s ease-in-out infinite;
+  }
+
+  @keyframes leaf-sway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+  }
+}
