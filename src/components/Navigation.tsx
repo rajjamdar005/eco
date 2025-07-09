@@ -37,7 +37,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 nature-gradient rounded-xl flex items-center justify-center shadow-[var(--shadow-card)] leaf-sway">
-              <Leaf className="h-6 w-6 text-white" />
+              <img src="/src/assets/eco.jpg" alt="Eco Essentia Logo" className="object-contain max-h-full max-w-full" />
             </div>
             <span className="text-2xl font-bold text-foreground tracking-tight">Eco Essentia</span>
           </div>
