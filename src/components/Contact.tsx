@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, MessageSquare, AlertCircle, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,26 +15,93 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // Validation functions
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^[+]?[(]?[\d\s\-()]{10,}$/;
+    return phone === '' || phoneRegex.test(phone);
+  };
+
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (formData.phone && !validatePhone(formData.phone)) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      toast({
+        title: "Please fix the errors",
+        description: "Please correct the highlighted fields and try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Here you would typically send the data to your backend
+      // For now, we'll simulate the submission
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
       toast({
         title: "Message Sent Successfully!",
-        description: "We'll get back to you within 24 hours.",
+        description: "We'll get back to you within 24 hours. Check your email for confirmation.",
       });
+      
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      setErrors({});
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const contactInfo = [
@@ -162,27 +229,39 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Full Name *
                       </label>
-                      <Input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        placeholder="Your full name"
-                        required
-                        className="bg-background"
-                      />
+                        <Input
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => handleInputChange('name', e.target.value)}
+                          placeholder="Your full name"
+                          required
+                          className={`bg-background ${errors.name ? 'border-red-500 focus:border-red-500' : ''}`}
+                        />
+                        {errors.name && (
+                          <div className="flex items-center mt-1 text-sm text-red-600">
+                            <AlertCircle className="h-4 w-4 mr-1" />
+                            {errors.name}
+                          </div>
+                        )}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Email Address *
                       </label>
-                      <Input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        placeholder="your@email.com"
-                        required
-                        className="bg-background"
-                      />
+                        <Input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => handleInputChange('email', e.target.value)}
+                          placeholder="your@email.com"
+                          required
+                          className={`bg-background ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
+                        />
+                        {errors.email && (
+                          <div className="flex items-center mt-1 text-sm text-red-600">
+                            <AlertCircle className="h-4 w-4 mr-1" />
+                            {errors.email}
+                          </div>
+                        )}
                     </div>
                   </div>
 
@@ -191,13 +270,19 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Phone Number
                       </label>
-                      <Input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        placeholder="+91 98765 43210"
-                        className="bg-background"
-                      />
+                        <Input
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => handleInputChange('phone', e.target.value)}
+                          placeholder="+91 98765 43210"
+                          className={`bg-background ${errors.phone ? 'border-red-500 focus:border-red-500' : ''}`}
+                        />
+                        {errors.phone && (
+                          <div className="flex items-center mt-1 text-sm text-red-600">
+                            <AlertCircle className="h-4 w-4 mr-1" />
+                            {errors.phone}
+                          </div>
+                        )}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
@@ -224,13 +309,22 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Message *
                     </label>
-                    <Textarea
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Tell us about your project requirements, challenges, or questions..."
-                      className="bg-background min-h-[120px]"
-                      required
-                    />
+                      <Textarea
+                        value={formData.message}
+                        onChange={(e) => handleInputChange('message', e.target.value)}
+                        placeholder="Tell us about your project requirements, challenges, or questions..."
+                        className={`bg-background min-h-[120px] ${errors.message ? 'border-red-500 focus:border-red-500' : ''}`}
+                        required
+                      />
+                      {errors.message && (
+                        <div className="flex items-center mt-1 text-sm text-red-600">
+                          <AlertCircle className="h-4 w-4 mr-1" />
+                          {errors.message}
+                        </div>
+                      )}
+                      <div className="text-xs text-muted-foreground mt-1">
+                        {formData.message.length}/500 characters
+                      </div>
                   </div>
 
                   <Button 
@@ -260,18 +354,43 @@ const Contact = () => {
         <div className="mt-16">
           <Card className="nature-card overflow-hidden">
             <CardContent className="p-0">
-              <div className="h-80 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h4 className="text-lg font-semibold text-foreground mb-2">Visit Our Office</h4>
-                  <p className="text-muted-foreground">
-                    Shop No.7, Minche Complex<br />
-                    Opp. Rajpallu Mangal karyalaya<br />
-                    Unchgaon, Kolhapur - 416 005
-                  </p>
-                  <Button variant="outline" className="mt-4">
-                    Open in Maps
-                  </Button>
+              {/* Google Maps Embed */}
+              <div className="relative h-80 bg-muted/20">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.0234!2d74.2297!3d16.7046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQyJzE2LjYiTiA3NMKwMTMnNDYuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-b-xl"
+                ></iframe>
+                
+                {/* Overlay with office info */}
+                <div className="absolute top-4 left-4 bg-card/95 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-border/50 max-w-xs">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-4 w-4 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm text-foreground mb-1">Our Office</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        Shop No.7, Minche Complex<br />
+                        Opp. Rajpallu Mangal karyalaya<br />
+                        Unchgaon, Kolhapur - 416 005
+                      </p>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="mt-2 text-xs h-7"
+                        onClick={() => window.open('https://maps.google.com/?q=16.7046,74.2297', '_blank')}
+                      >
+                        <MapPin className="h-3 w-3 mr-1" />
+                        Get Directions
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>

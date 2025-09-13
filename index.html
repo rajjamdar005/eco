@@ -6,6 +6,7 @@
     <title>Eco Essentia - Environmental Solutions & Consulting</title>
     <meta name="description" content="Leading environmental consulting firm providing sustainable water treatment, air pollution control, waste management, and compliance solutions for businesses worldwide." />
     <meta name="author" content="Eco Essentia" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <meta property="og:title" content="Eco Essentia - Environmental Solutions & Consulting" />
     <meta property="og:description" content="Engineering environmental solutions for a sustainable future. Expert consulting, pollution control systems, and eco-friendly technologies." />
@@ -19,6 +20,30 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      // Enhanced suppression for KaTeX quirks mode warning from bundled files
+      (function() {
+        if (typeof window === 'undefined') return;
+        
+        const suppressKaTeXWarning = function(originalFn) {
+          return function(...args) {
+            const message = args.join(' ');
+            if (message && message.includes("KaTeX doesn't work in quirks mode")) {
+              return; // Suppress this specific warning
+            }
+            return originalFn.apply(this, args);
+          };
+        };
+      
+        // Override both console methods for bundled file compatibility
+        if (console.warn) {
+          console.warn = suppressKaTeXWarning(console.warn);
+        }
+        if (console.error) {
+          console.error = suppressKaTeXWarning(console.error);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

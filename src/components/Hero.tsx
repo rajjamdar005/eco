@@ -49,14 +49,14 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Clean CTA Buttons */}
+          {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <Button 
               size="lg" 
-              className="nature-button-primary text-lg"
+              className="nature-button-primary text-lg px-10 py-5 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Get Consultation
+              Get FREE Consultation
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
@@ -69,19 +69,38 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Clean Stats */}
+          {/* Trust Indicators */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span>MPCB Certified</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <span>ISO Compliant</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+
+          {/* Enhanced Stats with Icons */}
           <div className="hero-stats grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-12 border-t border-border/30">
-            <div className="text-center space-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">2+</div>
+            <div className="text-center space-y-3 group">
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform">5+</div>
               <div className="text-muted-foreground font-medium">Years Experience</div>
+              <div className="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
             </div>
-            <div className="text-center space-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">60+</div>
+            <div className="text-center space-y-3 group">
+              <div className="text-4xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent group-hover:scale-110 transition-transform">150+</div>
               <div className="text-muted-foreground font-medium">Projects Completed</div>
+              <div className="w-12 h-1 bg-gradient-to-r from-secondary to-primary mx-auto rounded-full"></div>
             </div>
-            <div className="text-center space-y-2">
-              <div className="text-4xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">99%</div>
+            <div className="text-center space-y-3 group">
+              <div className="text-4xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent group-hover:scale-110 transition-transform">99%</div>
               <div className="text-muted-foreground font-medium">Client Satisfaction</div>
+              <div className="w-12 h-1 bg-gradient-to-r from-accent to-secondary mx-auto rounded-full"></div>
             </div>
           </div>
         </div>

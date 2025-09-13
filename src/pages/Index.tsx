@@ -1,10 +1,13 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
+import Portfolio from '@/components/Portfolio';
+import Testimonials from '@/components/Testimonials';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations';
 
 const Index = () => {
@@ -21,6 +24,12 @@ const Index = () => {
           <Services />
         </div>
         <div className="animate-section">
+          <Portfolio />
+        </div>
+        <div className="animate-section">
+          <Testimonials />
+        </div>
+        <div className="animate-section">
           <WhyChooseUs />
         </div>
         <div id="about" className="animate-section">
@@ -31,6 +40,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 };
