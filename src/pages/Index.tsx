@@ -4,6 +4,7 @@ import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
 import Testimonials from '@/components/Testimonials';
 import WhyChooseUs from '@/components/WhyChooseUs';
+import FounderMessage from '@/components/FounderMessage';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -32,8 +33,14 @@ const Index = () => {
         <div className="animate-section">
           <WhyChooseUs />
         </div>
+        <div className="animate-section">
+          <FounderMessage />
+        </div>
         <div id="about" className="animate-section">
           <About />
+        </div>
+        <div className="animate-section">
+          <FounderMessage />
         </div>
         <div className="animate-section">
           <Contact />

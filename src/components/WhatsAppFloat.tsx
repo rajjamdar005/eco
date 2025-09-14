@@ -109,11 +109,11 @@ const WhatsAppFloat = () => {
                       variant="outline"
                       size="sm"
                       onClick={() => openWhatsApp(msg.message)}
-                      className="w-full justify-start text-left h-auto p-3 hover:bg-green-50 hover:border-green-200 hover:text-green-700"
+                      className="w-full justify-start text-left h-auto p-3 hover:bg-green-50 hover:border-green-200 hover:text-green-700 overflow-hidden"
                     >
-                      <div>
-                        <div className="font-medium text-xs">{msg.title}</div>
-                        <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                      <div className="w-full min-w-0">
+                        <div className="font-medium text-xs truncate">{msg.title}</div>
+                        <div className="text-xs text-muted-foreground mt-1 line-clamp-2 break-words">
                           {msg.message}
                         </div>
                       </div>

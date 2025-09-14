@@ -6,6 +6,7 @@ const Footer = () => {
     { name: 'Home', href: '#hero' },
     { name: 'Services', href: '#services' },
     { name: 'About Us', href: '#about' },
+    { name: 'Founder', href: '/founder-says' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -69,8 +70,12 @@ const Footer = () => {
                 <li key={index}>
                   <button
                     onClick={() => {
-                      const element = document.querySelector(link.href);
-                      element?.scrollIntoView({ behavior: 'smooth' });
+                      if (link.isRoute) {
+                        window.location.href = link.href;
+                      } else {
+                        const element = document.querySelector(link.href);
+                        element?.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }}
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
@@ -89,8 +94,12 @@ const Footer = () => {
                 <li key={index}>
                   <button
                     onClick={() => {
-                      const element = document.getElementById('services');
-                      element?.scrollIntoView({ behavior: 'smooth' });
+                      if (link.href.startsWith('/')) {
+                        window.location.href = link.href;
+                      } else {
+                        const element = document.querySelector(link.href);
+                        element?.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }}
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
