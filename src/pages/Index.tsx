@@ -33,9 +33,7 @@ const Index = () => {
         <div className="animate-section">
           <WhyChooseUs />
         </div>
-        <div className="animate-section">
-          <FounderMessage />
-        </div>
+        
         <div id="about" className="animate-section">
           <About />
         </div>

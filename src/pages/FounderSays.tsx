@@ -63,25 +63,6 @@ const FounderSays = () => {
                       </div>
                     </CardContent>
                   </Card>
-                  
-                  {/* Secondary Founder */}
-                  <Card className="nature-card overflow-hidden ml-8">
-                    <CardContent className="p-0">
-                      <div className="relative">
-                        <div className="aspect-[4/3] relative overflow-hidden">
-                          <LazyImage
-                            src="/eco6.jpg"
-                            alt="Mr. S. S. Chougule - Co-Founder"
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                            <h4 className="text-xl font-semibold text-white mb-1">Mr. S. S. Chougule</h4>
-                            <p className="text-green-300 text-sm font-medium">Co-Founder & Technical Director</p>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
                 </div>
               </div>
 
@@ -99,16 +80,7 @@ const FounderSays = () => {
                     <p className="text-sm text-muted-foreground mt-4 pl-8">— Mr. P. S. Naik</p>
                   </div>
 
-                  <div className="relative">
-                    <Quote className="absolute -top-6 -left-4 h-16 w-16 text-secondary/20" />
-                    <blockquote className="text-xl md:text-2xl font-medium text-foreground leading-relaxed pl-8 italic border-l-4 border-secondary">
-                      "Innovation and expertise drive our solutions. We believe that advanced 
-                      technology combined with deep environmental knowledge creates the most 
-                      effective sustainable solutions."
-                    </blockquote>
-                    <p className="text-sm text-muted-foreground mt-4 pl-8">— Mr. S. S. Chougule</p>
-                  </div>
-                </div>
+                  
 
                 {/* Founder Details */}
                 <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/10">
@@ -142,7 +114,7 @@ const FounderSays = () => {
                   <div className="flex items-center space-x-6 text-sm">
                     <div className="flex items-center text-muted-foreground">
                       <Phone className="h-4 w-4 mr-2 text-primary" />
-                      <span>+91 7249 5151 17 (Mr. P. S. Naik)</span>
+                      <span>+91 7249 5151 17 (Mr.Samarjeet Naik)</span>
                     </div>
                     <div className="flex items-center text-muted-foreground">
                       <Mail className="h-4 w-4 mr-2 text-primary" />
@@ -162,6 +134,7 @@ const FounderSays = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </section>
 

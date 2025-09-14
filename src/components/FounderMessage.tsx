@@ -73,31 +73,6 @@ const FounderMessage = () => {
               </CardContent>
             </Card>
 
-            {/* Founder 2 */}
-            <Card className="nature-card overflow-hidden">
-              <CardContent className="p-0">
-                <div className="md:flex">
-                  <div className="md:w-1/3 relative">
-                    <div className="aspect-square relative overflow-hidden">
-                      <LazyImage
-                        src="/eco3.png"
-                        alt="Mr. S. S. Chougule - Co-Founder"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div className="md:w-2/3 p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">Mr. S. S. Chougule</h3>
-                    <p className="text-primary text-sm font-medium mb-3">Co-Founder & Technical Director</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      "Innovation and expertise drive our solutions. We believe that advanced 
-                      technology combined with deep environmental knowledge creates the most 
-                      effective sustainable solutions."
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Right Column - Message Content */}

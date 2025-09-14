@@ -20,7 +20,7 @@ const Navigation = () => {
     { name: 'Services', href: '#services' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'About', href: '#about' },
-    { name: 'Founder', href: '/founder-says', isRoute: true },
+    
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -46,8 +46,7 @@ const Navigation = () => {
               <Leaf className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </div>
             <span className="text-lg sm:text-2xl font-bold text-foreground tracking-tight truncate">
-              <span className="block sm:hidden">Eco</span>
-              <span className="hidden sm:block">Eco Essentia</span>
+              Eco Essentia
             </span>
           </div>
 
@@ -56,7 +55,7 @@ const Navigation = () => {
             {navItems.map((item, index) => (
               <button
                 key={index}
-                onClick={() => scrollToSection(item.href, item.isRoute)}
+                onClick={() => scrollToSection(item.href)}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.name}
@@ -102,7 +101,7 @@ const Navigation = () => {
               {navItems.map((item, index) => (
                 <button
                   key={index}
-                  onClick={() => scrollToSection(item.href, item.isRoute)}
+                  onClick={() => scrollToSection(item.href)}
                   className="block w-full text-left text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
                 >
                   {item.name}
