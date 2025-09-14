@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://eco-essentia.com/</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://eco-essentia.com/hero-image.jpg</image:loc>
+      <image:title>Eco Essentia Environmental Solutions - Pollution Control Services Kolhapur</image:title>
+      <image:caption>Leading pollution control and environmental services in Kolhapur, Maharashtra</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://eco-essentia.com/#services</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Portfolio Page -->
+  <url>
+    <loc>https://eco-essentia.com/#portfolio</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://eco-essentia.com/#about</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://eco-essentia.com/#contact</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Service-specific pages for better SEO -->
+  <url>
+    <loc>https://eco-essentia.com/pollution-control-services-kolhapur</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://eco-essentia.com/mpcb-compliance-kolhapur</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://eco-essentia.com/water-treatment-kolhapur</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://eco-essentia.com/air-pollution-control-kolhapur</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://eco-essentia.com/waste-management-kolhapur</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://eco-essentia.com/environmental-consulting-kolhapur</loc>
+    <lastmod>2024-01-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+</urlset>
